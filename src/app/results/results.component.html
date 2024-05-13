@@ -1,0 +1,17 @@
+<h2>Results</h2>
+<table class="table">
+  <tbody>
+    <tr>
+      <td><h3>Name</h3></td>
+      <td colspan="2"><h3>Date</h3></td>  
+    </tr>
+    <tr *ngFor="let item of savedResults">
+      <td scope="col"><h3>{{ item.key }}</h3></td>
+      <td scope="col"><h3>{{ item.dt }}</h3></td>
+      <td scope="col"> 
+          <a class="phat" (click)="showResultDetails(item)">View</a> &NonBreakingSpace;
+          <a class="phat" (click)="del(item, $event);">Delete</a>
+        </td>
+    </tr>
+  </tbody>
+</table>

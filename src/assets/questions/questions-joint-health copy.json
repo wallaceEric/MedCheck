@@ -1,0 +1,786 @@
+{
+    "pages": [
+        {
+            "name": "page1",
+            "navigationTitle": "Age / Activity",
+            "navigationDescription": "Age and activity level.",
+            "elements": [
+                {
+                    "name": "name-desc",
+                    "title": "Please enter a name or description for this questionnaire",
+                    "type": "text",
+                    "isRequired": true
+                },{
+                    "name": "age",
+                    "title": "What is your age?",
+                    "type": "text",
+                    "inputType": "number",
+                    "min": 1,
+                    "max": 130,
+                    "isRequired": true
+                },
+                {
+                    "name": "active-growing-up",
+                    "title": "Growing up were you very active?",
+                    "type": "radiogroup",
+                    "choices": [
+                        {
+                            "value": 10,
+                            "text": "Very active"
+                        },
+                        {
+                            "value": 5,
+                            "text": "Somewhat active"
+                        },
+                        {
+                            "value": 0,
+                            "text": "Not active"
+                        }
+                    ],
+                    "isRequired": true
+                }
+            ]
+        },
+        {
+            "name": "page2",
+            "navigationTitle": "Anti-Inflammatories",
+            "navigationDescription": "Anti-Inflammatory use growing up",
+            "elements": [
+                {
+                    "name": "ai-growing-up",
+                    "title": "Did you use Aspirin, Advil or other anti-inflammatory medications growing up (Tylenol / acetaminophen does not count)?",
+                    "type": "radiogroup",
+                    "choices": [
+                        {
+                            "value": -10,
+                            "text": "Daily"
+                        },
+                        {
+                            "value": -5,
+                            "text": "Frequently"
+                        },
+                        {
+                            "value": -4,
+                            "text": "Often"
+                        },
+                        {
+                            "value": -3,
+                            "text": "Sometimes"
+                        },
+                        {
+                            "value": -2,
+                            "text": "Occasionally"
+                        },
+                        {
+                            "value": -1,
+                            "text": "Rarely"
+                        },
+                        {
+                            "value": 5,
+                            "text": "Never"
+                        }
+                    ],
+                    "isRequired": true
+                }
+            ]
+        },
+        {
+            "name": "page3",
+            "navigationTitle": "Fever / Chills",
+            "navigationDescription": "Fever / chills incidence",
+            "elements": [
+                {
+                    "name": "laid-up-fever-chills",
+                    "title": "Have you ever been laid up for days in bed with a fever, body aches, chills, sweats?",
+                    "type": "radiogroup",
+                    "defaultValue": 0,
+                    "choices": [
+                        {
+                            "value": 0,
+                            "text": "Never"
+                        },
+                        {
+                            "value": -3,
+                            "text": "Once"
+                        },
+                        {
+                            "value": -6,
+                            "text": "Twice"
+                        },
+                        {
+                            "value": -9,
+                            "text": "Three times"
+                        },
+                        {
+                            "value": -12,
+                            "text": "Four times"
+                        },
+                        {
+                            "value": -15,
+                            "text": "Five or more times"
+                        }
+                    ],
+                    "isRequired": true
+                }
+            ]
+        },
+        {
+            "name": "page4",
+            "navigationTitle": "Fever / Chills meds",
+            "navigationDescription": "Fever / Chills anti-inflammatory medications used.",
+            "elements": [
+                {
+                    "name": "laid-up-fever-chills-ai",
+                    "title": "If laid up in bed one or more times (previous question), did you take Therflu, Aspirin, Advil, Motrin or other anti-inflammatory medications (Tylenol / acetaminophen does not count)?",
+                    "visibleIf": "{laid-up-fever-chills} != 0",
+                    "type": "radiogroup",
+                    "choices": [
+                        {
+                            "value": 0,
+                            "text": "None"
+                        },
+                        {
+                            "value": -4,
+                            "text": "Once or twice"
+                        },
+                        {
+                            "value": -5,
+                            "text": "More than twice"
+                        }
+                    ],
+                    "isRequired": true
+                }
+            ]
+        },
+        {
+            "elements": [
+                {
+                    "name": "shingles",
+                    "title": "Have you ever had shingles?",
+                    "type": "boolean",
+                    "isRequired": true,
+                    "defaultValue": false
+                }
+            ]
+        },
+        {
+            "elements": [
+                {
+                    "type": "matrixdynamic",
+                    "name": "joints-shingles",
+                    "title": "Please indicate each joint that was within a shingles rash area, how many times, severity and whether anti-inflammatory medications were used (Tylenol / acetaminophen does not count).",
+                    "visibleIf": "{shingles} = true",
+                    "columns": [
+                        {
+                            "name": "joint",
+                            "title": "Joint",
+                            "cellType": "dropdown",
+                            "isRequired": true,
+                            "choices": [
+                                "Neck",
+                                "Upper Back",
+                                "Lower Back",
+                                "Below Lower Back (Sacroiliac)",
+                                "Shoulder",
+                                "Elbow",
+                                "Wrist",
+                                "Thumb",
+                                "Fingers",
+                                "Hip",
+                                "Knee",
+                                "Ankle / Foot",
+                                "Big Toe"
+                            ]
+                        },
+                        {
+                            "name": "side",
+                            "title": "Side",
+                            "cellType": "dropdown",
+                            "isRequired": true,
+                            "choices": [
+                                {
+                                    "value": "r",
+                                    "text": "Left"
+                                },
+                                {
+                                    "value": "l",
+                                    "text": "Right"
+                                },
+                                {
+                                    "value": "na",
+                                    "text": "N/A"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "count",
+                            "title": "How many times?",
+                            "cellType": "dropdown",
+                            "defaultValue": 1,
+                            "choicesMin": 1,
+                            "choicesMax": 20,
+                            "isRequired": false
+                        },
+                        {
+                            "name": "severity",
+                            "title": "How severe?",
+                            "cellType": "dropdown",
+                            "isRequired": true,
+                            "choices": [
+                                {
+                                    "value": -3,
+                                    "text": "Mild"
+                                },
+                                {
+                                    "value": -5,
+                                    "text": "Moderate"
+                                },
+                                {
+                                    "value": -5,
+                                    "text": "Severe"
+                                }
+                            ]
+                        }, {
+                            "name": "ai",
+                            "title": "Anti-inflammatory medications used?",
+                            "cellType": "boolean",
+                            "isRequired": true,
+                            "defaultValue": false
+                        }
+                    ],
+                    "rowCount": 1,
+                    "addRowText": "Add Joint",
+                    "removeRowText": "Remove Joint"
+                }
+            ]
+        },
+        {
+            "elements": [
+                {
+                    "name": "sprain",
+                    "title": "Have you sprained any joints?",
+                    "type": "boolean",
+                    "isRequired": true,
+                    "defaultValue": false
+                }
+            ]
+        },
+        {
+            "elements": [
+                {
+                    "type": "matrixdynamic",
+                    "name": "joints-sprains",
+                    "title": "Please indicate each sprained joint, how many times sprained, severity, whether ice/heat treatment or anti-inflammatory medications where used (Tylenol / acetaminophen does not count).",
+                    "visibleIf": "{sprain} = true",
+                    "columns": [
+                        {
+                            "name": "joint",
+                            "title": "Joint",
+                            "cellType": "dropdown",
+                            "isRequired": true,
+                            "choices": [
+                                "Neck",
+                                "Upper Back",
+                                "Lower Back",
+                                "Below Lower Back (Sacroiliac)",
+                                "Shoulder",
+                                "Elbow",
+                                "Wrist",
+                                "Thumb",
+                                "Fingers",
+                                "Hip",
+                                "Knee",
+                                "Ankle / Foot",
+                                "Big Toe"
+                            ]
+                        },
+                        {
+                            "name": "side",
+                            "title": "Side",
+                            "cellType": "dropdown",
+                            "isRequired": true,
+                           "choices": [
+                                {
+                                    "value": "r",
+                                    "text": "Left"
+                                },
+                                {
+                                    "value": "l",
+                                    "text": "Right"
+                                },
+                                {
+                                    "value": "na",
+                                    "text": "N/A"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "count",
+                            "title": "How many times?",
+                            "cellType": "dropdown",
+                            "defaultValue": 1,
+                            "choicesMin": 1,
+                            "choicesMax": 20,
+                            "isRequired": true                        
+                        },
+                        {
+                            "name": "severity",
+                            "title": "How severe?",
+                            "cellType": "dropdown",
+                            "isRequired": true,
+                            "choices": [
+                                {
+                                    "value": -3,
+                                    "text": "Mild"
+                                },
+                                {
+                                    "value": -6,
+                                    "text": "Moderate"
+                                },
+                                {
+                                    "value": -10,
+                                    "text": "Severe"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "ice-heat",
+                            "title": "Ice / heat used?",
+                            "cellType": "boolean",
+                            "isRequired": true,
+                            "defaultValue": true
+                        },
+                        {
+                            "name": "ai",
+                            "title": "Anti-inflammatory medications used?",
+                            "cellType": "boolean",
+                            "isRequired": true,
+                            "defaultValue": false
+                        }
+                    ],
+                    "rowCount": 1,
+                    "addRowText": "Add Joint",
+                    "removeRowText": "Remove Joint"
+                }
+            ]
+        },
+        {
+            "elements": [
+                {
+                    "type": "matrixdynamic",
+                    "name": "joints-pain-loose",
+                    "title": "Please indicate any joint that hurts or is loose / unstable.",
+                    "columns": [
+                        {
+                            "name": "joint",
+                            "title": "Joint",
+                            "cellType": "dropdown",
+                            "choices": [
+                                "Neck",
+                                "Upper Back",
+                                "Lower Back",
+                                "Below Lower Back (Sacroiliac)",
+                                "Shoulder",
+                                "Elbow",
+                                "Wrist",
+                                "Thumb",
+                                "Fingers",
+                                "Hip",
+                                "Knee",
+                                "Ankle / Foot",
+                                "Big Toe"
+                            ]
+                        },
+                        {
+                            "name": "side",
+                            "title": "Side",
+                            "cellType": "dropdown",
+                           "choices": [
+                                {
+                                    "value": "r",
+                                    "text": "Left"
+                                },
+                                {
+                                    "value": "l",
+                                    "text": "Right"
+                                },
+                                {
+                                    "value": "na",
+                                    "text": "N/A"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "pain",
+                            "title": "Hurts?",
+                            "cellType": "boolean",
+                            "defaultValue": true
+                        },
+                        {
+                            "name": "loose",
+                            "title": "Loose or unstable?",
+                            "cellType": "boolean",
+                            "defaultValue": true
+                        }
+                    ],
+                    "rowCount": 1,
+                    "addRowText": "Add Joint",
+                    "removeRowText": "Remove Joint"
+                }
+            ]
+        },
+        {
+            "elements": [
+                {
+                    "name": "ai-now",
+                    "title": "Do you currenty use Aspirin, Advil or other anti-inflammatory medications (Tylenol / acetaminophen does not count)?",
+                    "type": "radiogroup",
+                    "choices": [
+                        {
+                            "value": -10,
+                            "text": "Daily"
+                        },
+                        {
+                            "value": -7,
+                            "text": "Frequently"
+                        },
+                        {
+                            "value": -5,
+                            "text": "Often"
+                        },
+                        {
+                            "value": -3,
+                            "text": "Sometimes"
+                        },
+                        {
+                            "value": -2,
+                            "text": "Occasionally"
+                        },
+                        {
+                            "value": -1,
+                            "text": "Rarely"
+                        },
+                        {
+                            "value": 5,
+                            "text": "Never"
+                        }
+                    ],
+                    "isRequired": true
+                }
+            ]
+        },
+        {
+            "elements": [
+                {
+                    "name": "cancer-now",
+                    "title": "Are you currently being treated for cancer?",
+                    "type": "boolean",
+                    "isRequired": true
+                },   
+                {
+                    "name": "cancer-prev",
+                    "title": "Have you been treated for cancer in the past?",
+                    "type": "boolean",
+                    "isRequired": true
+                }
+            ]
+        },
+        
+        {
+            "elements": [
+                {
+                    "name": "ai-week",
+                    "title": "Have you been treated for more than a week with steroids, anti-inflammatory medications, biologics, including nasal sprays, topical, inhalers, pills, infusions or others (Tylenol / acetaminophen does not count)?",
+                    "type": "boolean",
+                    "isRequired": true
+                },
+                {
+                    "name": "ai-week-count",
+                    "title": "How many times?",
+                    "visibleIf": "{ai-week} = true",
+                    "type": "dropdown",
+                    "defaultValue": 1,
+                    "choicesMin": 1,
+                    "choicesMax": 20,
+                    "isRequired": true                        
+                },
+                {
+                    "name": "autoimmune",
+                    "title": "Do you have or have you had an autoimmune disease that has been treated with steroids, dexamethasone, biologics or anti-inflammatory medication (Tylenol / acetaminophen does not count)?",
+                    "type": "boolean",
+                    "isRequired": true
+                },
+                {
+                    "name": "autoimmune-duration",
+                    "title": "For how many years?",
+                    "visibleIf": "{autoimmune} = true",
+                    "type": "dropdown",
+                    "defaultValue": 1,
+                    "choicesMin": 0,
+                    "choicesMax": 50,
+                    "isRequired": true
+                }
+            ]
+        },
+        {
+            "elements": [
+                {
+                    "name": "hard-fall",
+                    "title": "How many times have you fallen hard on your butt or knees, or fallen from 10+ feet onto your feet?",
+                    "type": "dropdown",
+                    "defaultValue": 0,
+                    "choicesMin": 0,
+                    "choicesMax": 25,
+                    "isRequired": false
+                }
+            ]
+        },
+        {
+            "elements": [
+                {
+                    "name": "accident-major",
+                    "title": "How many major car accidents have you been in?",
+                    "type": "dropdown",
+                    "defaultValue": 0,
+                    "choicesMin": 0,
+                    "choicesMax": 25,
+                    "isRequired": false
+                },
+                {
+                    "name": "accident-minor",
+                    "title": "How many minor car accidents have you been in?",
+                    "type": "dropdown",
+                    "defaultValue": 0,
+                    "choicesMin": 0,
+                    "choicesMax": 25,
+                    "isRequired": false
+                }
+            ]
+        },
+        {
+            "elements": [
+                {
+                    "type": "matrixdynamic",
+                    "name": "joints-accident",
+                    "visibleIf": "{accident-major} + {accident-minor} > 0 ",
+                    "title": "Please indicate any joints that were hurt in a car accident, how severely, whether iced/heated or anti-inflammatory medications were taken.",
+                    "columns": [
+                        {
+                            "name": "joint",
+                            "title": "Joint",
+                            "cellType": "dropdown",
+                            "choices": [
+                                "Neck",
+                                "Upper Back",
+                                "Lower Back",
+                                "Below Lower Back (Sacroiliac)",
+                                "Shoulder",
+                                "Elbow",
+                                "Wrist",
+                                "Thumb",
+                                "Fingers",
+                                "Hip",
+                                "Knee",
+                                "Ankle / Foot",
+                                "Big Toe"
+                            ]
+                        },
+                        {
+                            "name": "side",
+                            "title": "Side",
+                            "cellType": "dropdown",
+                           "choices": [
+                                {
+                                    "value": "r",
+                                    "text": "Left"
+                                },
+                                {
+                                    "value": "l",
+                                    "text": "Right"
+                                },
+                                {
+                                    "value": "na",
+                                    "text": "N/A"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "severity",
+                            "title": "How severe?",
+                            "cellType": "dropdown",
+                            "isRequired": true,
+                            "choices": [
+                                {
+                                    "value": -3,
+                                    "text": "Mild"
+                                },
+                                {
+                                    "value": -6,
+                                    "text": "Moderate"
+                                },
+                                {
+                                    "value": -10,
+                                    "text": "Severe"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "ice-heat",
+                            "title": "Ice / heat used?",
+                            "cellType": "boolean",
+                            "isRequired": true,
+                            "defaultValue": true
+                        },
+                        {
+                            "name": "ai",
+                            "title": "Anti-inflammatory medications used?",
+                            "cellType": "boolean",
+                            "isRequired": true,
+                            "defaultValue": false
+                        }
+                    ],
+                    "rowCount": 1,
+                    "addRowText": "Add Joint",
+                    "removeRowText": "Remove Joint"
+                }
+            ]
+        },
+        {
+            "elements": [
+                {
+                    "type": "matrixdynamic",
+                    "name": "joints-replaced-or-changing",
+                    "title": "Please indicate any joint that has been replaced or is changing shape / deforming / bowing / becoming knobby.",
+                    "columns": [
+                        {
+                            "name": "joint",
+                            "title": "Joint",
+                            "cellType": "dropdown",
+                            "choices": [
+                                "Neck",
+                                "Upper Back",
+                                "Lower Back",
+                                "Below Lower Back (Sacroiliac)",
+                                "Shoulder",
+                                "Elbow",
+                                "Wrist",
+                                "Thumb",
+                                "Fingers",
+                                "Hip",
+                                "Knee",
+                                "Ankle / Foot",
+                                "Big Toe"
+                            ]
+                        },
+                        {
+                            "name": "side",
+                            "title": "Side",
+                            "cellType": "dropdown",
+                           "choices": [
+                                {
+                                    "value": "r",
+                                    "text": "Left"
+                                },
+                                {
+                                    "value": "l",
+                                    "text": "Right"
+                                },
+                                {
+                                    "value": "na",
+                                    "text": "N/A"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "replaced",
+                            "title": "Replaced?",
+                            "cellType": "boolean"
+                        },
+                        {
+                            "name": "changing",
+                            "title": "Changing / deforming / bowing / becoming knobby?",
+                            "cellType": "boolean"
+                        }
+                    ],
+                    "rowCount": 1,
+                    "addRowText": "Add Joint",
+                    "removeRowText": "Remove Joint"
+                }
+            ]
+        },
+        {
+            "elements": [
+                {
+                    "type": "matrixdynamic",
+                    "name": "joints-prolo",
+                    "title": "Please indicate any joints that were treated with Prolotherapy.",
+                    "columns": [
+                        {
+                            "name": "joint",
+                            "title": "Joint",
+                            "cellType": "dropdown",
+                            "choices": [
+                                "Neck",
+                                "Upper Back",
+                                "Lower Back",
+                                "Below Lower Back (Sacroiliac)",
+                                "Shoulder",
+                                "Elbow",
+                                "Wrist",
+                                "Thumb",
+                                "Fingers",
+                                "Hip",
+                                "Knee",
+                                "Ankle / Foot",
+                                "Big Toe"
+                            ]
+                        },
+                        {
+                            "name": "side",
+                            "title": "Side",
+                            "cellType": "dropdown",
+                            "isRequired": false,
+                           "choices": [
+                                {
+                                    "value": "r",
+                                    "text": "Left"
+                                },
+                                {
+                                    "value": "l",
+                                    "text": "Right"
+                                },
+                                {
+                                    "value": "na",
+                                    "text": "N/A"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "count-moc",
+                            "title": "How many prolotherapy treatments at Missoula Osteopathic?",
+                            "cellType": "dropdown",
+                            "defaultValue": 0,
+                            "choicesMin": 0,
+                            "choicesMax": 25,
+                            "isRequired": false
+                        },
+                        {
+                            "name": "count",
+                            "title": "How many at other providers?",
+                            "cellType": "dropdown",
+                            "defaultValue": 0,
+                            "choicesMin": 0,
+                            "choicesMax": 25,
+                            "isRequired": false
+                        }
+                    ],
+                    "rowCount": 1,
+                    "addRowText": "Add Joint",
+                    "removeRowText": "Remove Joint"
+                }
+            ]
+        }
+    ],
+    "showProgressBar": "none",
+    "progressBarType": "buttons"
+}
