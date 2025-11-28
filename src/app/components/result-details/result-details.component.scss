@@ -1,0 +1,76 @@
+
+.results-title {
+    text-align: center;
+}
+
+.fancy-button,
+.action-btn {
+    cursor: pointer;
+}
+
+.top-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+table.table {
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+    width: auto;
+    table-layout: auto;
+}
+
+table.table th, table.table td {
+    padding: 0.75em 1em;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    white-space: nowrap;
+    width: auto;
+}
+
+table.table th {
+    background: #f5f5f5;
+    font-weight: 600;
+    font-size: 1.05em;
+}
+
+table.table tr:last-child td {
+    border-bottom: none;
+}
+
+table.table td[colspan="2"] {
+    text-align: center;
+}
+
+// Mobile-specific table styles removed to keep table layout consistent across all screen sizes
+.green {
+    background-color: green;
+    color: white
+}
+.yellow {
+    background-color: yellow;
+    color: black
+}
+.orange {
+    background-color: orange;
+    color: black
+}
+.red {
+    background-color: red;
+    color: white
+}
+.purple {
+    background-color: purple;
+    color: white
+}
+.black {
+    background-color: black;
+    color: white
+}

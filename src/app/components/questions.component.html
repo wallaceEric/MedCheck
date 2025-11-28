@@ -1,0 +1,8 @@
+<div>
+  <ng-container *ngIf="mode === 'surveyjs'; else angularForm">
+    <div id="surveyContainer"></div>
+  </ng-container>
+  <ng-template #angularForm>
+    <app-questions-angular></app-questions-angular>
+  </ng-template>
+</div>
