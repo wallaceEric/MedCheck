@@ -1,0 +1,116 @@
+.results-title {
+  text-align: center;
+}
+
+.fancy-button,
+.action-btn {
+  cursor: pointer;
+}
+
+.top-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table {
+  width: auto;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  border-radius: 10px;
+  margin: 0 auto;
+  table-layout: auto;
+}
+
+.table th, .table td {
+  padding: 0.75em 1em;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap;
+}
+
+.table th {
+  background: #f5f5f5;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table td[colspan="2"] {
+  text-align: center;
+}
+
+// Responsive adjustments for mobile
+@media (max-width: 600px) {
+  .table th, .table td {
+    padding: 0.5em 0.5em;
+    font-size: 13px;
+  }
+  .table-container {
+    margin-bottom: 1rem;
+  }
+}
+
+// Color classes for table cells
+.green,
+.yellow,
+.orange,
+.red,
+.purple,
+.black {
+  color: #fff;
+  text-shadow:
+    0 1px 2px rgba(0,0,0,0.22), // slightly stronger shadow
+    0 0.5px 0.5px rgba(0,0,0,0.12); // subtle extra depth
+}
+
+.green {
+  background: linear-gradient(135deg, #4bbf8f 50%, #176944 100%);
+  border: 1px solid #176944;
+}
+
+.yellow {
+  background: linear-gradient(135deg, #d4b900 50%, #b3a100 100%);
+  border: 1px solid #b3a100;
+}
+
+.orange {
+  background: linear-gradient(135deg, #e68a3a 50%, #8c3c13 100%);
+  border: 1px solid #8c3c13;
+}
+
+.red {
+  background: linear-gradient(135deg, #d98a8a 50%, #7a2320 100%);
+  border: 1px solid #7a2320;
+}
+
+.purple {
+  background: linear-gradient(135deg, #8c6bb1 50%, #432c5c 100%);
+  border: 1px solid #432c5c;
+}
+
+.black {
+  background: linear-gradient(135deg, #888 50%, #222 100%);
+  border: 1px solid #222;
+}
+
+@media print {
+  .green, .green td { background: #217a5b !important; color: #fff !important; }
+  .yellow, .yellow td { background: #d4b900 !important; color: #fff !important; }
+  .orange, .orange td { background: #b85c38 !important; color: #fff !important; }
+  .red, .red td { background: #a94442 !important; color: #fff !important; }
+  .purple, .purple td { background: #6c3483 !important; color: #fff !important; }
+  .black, .black td { background: #333 !important; color: #fff !important; }
+}

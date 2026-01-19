@@ -1,12 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
-// @import "~bootstrap/dist/css/bootstrap.min.css";
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
-@import "../node_modules/survey-core/defaultV2.min.css";
+/* Standout subtitle style for home page */
+.standout-title {
+  color: #086173;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 8px rgba(3,84,101,0.08);
+  margin: 1.2em 0 0.6em 0;
+  text-align: center;
+  position: relative;
+}
+.standout-title::after {
+  content: '';
+  display: block;
+  margin: 0.5em auto 0 auto;
+  width: 3.5em;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #e6b800 0%, #035465 100%);
+}
+/* Highlight active navbar button */
+.button.active,
+.fancy-button.active {
+  background: #c7ecf3;
+  color: #086173;
+  border-bottom: 1px solid #086173;
+  font-weight: bold;
+  box-shadow: 0 4px 16px rgba(8,97,115,0.18), 0 0 0 2px #f39b04e9;
+  transform: scale(1.01) translateY(-1px);
+  z-index: 1;
+  position: relative;
+  transition: box-shadow 0.2s, transform 0.15s;
+}
+/* Override SurveyJS defaultV2 theme primary color */
+:root {
+  --sjs-primary-backcolor: #086173; /* Replace with your blue */
+  --sjs-primary-backcolor-light: ##22A0B6; /* Optional: lighter blue for hover/focus */
+  --sjs-primary-backcolor-dark: #035465;  /* Optional: darker blue for active */
+}
 
-/* Global Styles */
+
 
 * {
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     color: #616161;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
@@ -15,6 +49,7 @@
   
   body {
     margin: 0;
+    background: #92e4ed; /* slightly darker turquoise */
   }
   
   .container {
@@ -29,11 +64,11 @@
   /* Text */
   
   h1 {
-    font-size: 44px;
+    font-size: 28px;
   }
   
   h2 {
-    font-size: 34px;
+    font-size: 20px;
   }
   
   h1, h2 {
@@ -41,18 +76,15 @@
   }
   
   p {
-    font-size: 24px;
+    font-size: 14px;
   }
   
   /* Hyperlink */
   
   a {
     cursor: pointer;
-    color: #268A76;    
-  }
-
-  a.phat {
-    font-size: 20px;
+    color: #1976d2;
+    text-decoration: none;
   }
   
   a:hover {
@@ -76,80 +108,230 @@
     display: block;
     text-transform: uppercase;
   }
-  
-  /* Button */
-  .button, button {
+
+
+  .button,
+  .fancy-button {
     display: inline-flex;
     align-items: center;
-    padding: 8px 16px;
-    border-radius: 2px;
-    font-size: 14px;
+    gap: 0.25em;
+    padding: 0.35em 0.7em;
+    border-radius: 3px;
+    font-size: 0.55em;
+    font-weight: 500;
     cursor: pointer;
-    background-color: #268A76;
-    color: white;
     border: none;
-    text-decoration: none;
+    background: linear-gradient(90deg, #7cadb6 0%, #c3cecf 100%);
+    color: #035465;
+    box-shadow: 0 1px 4px rgba(3,84,101,0.08);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+    position: relative;
+    outline: none;
   }
-  
-  .button:hover, button:hover {
-    opacity: 0.8;
-    font-weight: normal;
+
+.button .material-icons,
+.fancy-button .material-icons {
+  font-size: 1.3em;
+  vertical-align: middle;
+  color: #035465;
+}
+
+.button:hover,
+.fancy-button:hover {
+  /* Keep original background and color */
+  box-shadow: 0 4px 16px rgba(3,84,101,0.15);
+  transform: translateY(-2px) scale(1.03);
+}
+
+
+.button[disabled],
+.fancy-button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Utility class for inline button sizing and spacing */
+.inline {
+  font-size: 0.8em !important;
+  padding: 0.3em 0.76em !important;
+  margin: 0 0.1em;
+}
+
+@media (max-width: 700px) {
+  .inline {
+    font-size: 0.8em !important;
+    padding: 0.32em 0.8em !important;
   }
-  
-  .button:disabled, button:disabled {
-    opacity: 0.5;
-    cursor: auto;
-  }
-  
-  /* Fancy Button */
-  .fancy-button {
-    background-color: white;
-    color: #268A76;
-  }
-  
-  .fancy-button i.material-icons {
-    color: #268A76;
-    padding-right: 4px;
-  }
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // min-height: 60vh; /* or 100vh for full vertical centering */
+  text-align: center;
+}
   
   /* Top Bar */
-  
-  app-top-bar {
+
+  app-navbar {
     width: 100%;
     height: 68px;
-    background-color: #268A76;
     padding: 16px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
   }
+
+  app-navbar .navbar-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2em;
+    width: 100%;
+  }
   
-  app-top-bar h1 {
+  app-navbar h1 {
     color: white;
     margin: 0;
   }
   
-  /* Checkout Cart, Shipping Prices
-  
-  .cart-item, .shipping-item {
-    width: 100%;
-    min-width: 400px;
-    max-width: 450px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 16px 32px;
-    margin-bottom: 8px;
-    border-radius: 2px;
-    background-color: #EEEEEE;
+
+/* Ensures full height and allows scrolling */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+}
+body { font-family: 'Inter', Arial, sans-serif;}
+
+.area-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 1rem;
+	margin: 1rem 0;
+}
+.area-card {
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+.area-title {
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+}
+.area-sides {
+	display: flex;
+	gap: 1rem;
+}
+.area-side-label {
+	font-size: 0.95em;
+	margin-right: 0.25em;
+}
+.area-state {
+	font-weight: 500;
+	padding: 0.2em 0.6em;
+	border-radius: 4px;
+	margin-left: 0.25em;
+}
+@media (max-width: 600px) {
+	.area-grid {
+		grid-template-columns: 1fr;
+	}
+}
+// @import "../node_modules/bootstrap/scss/bootstrap.scss";
+// @import "node_modules/survey-core/defaultV2.min.css";
+
+/* Responsive styles for mobile compatibility */
+
+body {
+	margin: 0;
+	font-family: 'Inter', Arial, sans-serif;
+	background: #f8f9fa;
+}
+
+.navbar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem;
+	background: #fff;
+	border-bottom: 1px solid #eee;
+}
+
+.navbar-links button {
+	margin: 0 0.5rem;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+}
+
+.results-list table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 1rem;
+}
+.results-list th, .results-list td {
+	padding: 0.5rem;
+	border: 1px solid #ddd;
+	text-align: left;
+}
+.results-list th {
+	background: #f1f1f1;
+}
+
+@media (max-width: 600px) {
+  .button,
+  .fancy-button {
+    width: auto;
+    justify-content: center;
+    font-size: 0.55em;
+    margin-bottom: 0.5em;
   }
-  */
-  
-  /*
-  Copyright Google LLC. All Rights Reserved.
-  Use of this source code is governed by an MIT-style license that
-  can be found in the LICENSE file at https://angular.io/license
-  */
-html, body { height: 100%; }
-body { margin: 0; font-family:arial black, avant gard, sans-serif }
+	.navbar {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	.navbar-links {
+		width: 100%;
+		margin-top: 0.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	.results-list table, .results-list thead, .results-list tbody, .results-list th, .results-list td, .results-list tr {
+		display: block;
+		width: 100%;
+	}
+	.results-list tr {
+		margin-bottom: 1rem;
+		background: #fff;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+		border-radius: 6px;
+		padding: 0.5rem;
+	}
+	.results-list th {
+		display: none;
+	}
+	.results-list td {
+		border: none;
+		padding: 0.5rem 0;
+		font-size: 1rem;
+	}
+	.results-list td:before {
+		content: attr(data-label);
+		font-weight: bold;
+		display: block;
+		margin-bottom: 0.25rem;
+		color: #888;
+	}
+}

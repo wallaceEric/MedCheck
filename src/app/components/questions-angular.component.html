@@ -1,0 +1,25 @@
+<div *ngIf="isLoaded">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <ng-container *ngIf="surveyJson">
+      <h2>{{ surveyJson.pages[pageIndex].navigationTitle }}</h2>
+      <p>{{ surveyJson.pages[pageIndex].navigationDescription }}</p>
+      <div *ngFor="let el of surveyJson.pages[pageIndex].elements">
+        <label>{{ el.title }}</label>
+        <ng-container [ngSwitch]="el.type">
+          <input *ngSwitchCase="'text'" [formControlName]="el.name" [type]="el.inputType || 'text'" />
+          <div *ngSwitchCase="'radiogroup'">
+            <label *ngFor="let choice of el.choices">
+              <input type="radio" [formControlName]="el.name" [value]="choice.value" /> {{ choice.text }}
+            </label>
+          </div>
+        </ng-container>
+      </div>
+      <div class="form-navigation">
+        <button type="button" (click)="prevPage()" [disabled]="pageIndex === 0">Previous</button>
+        <button type="button" (click)="nextPage()" [disabled]="pageIndex === surveyJson.pages.length - 1">Next</button>
+        <button type="submit" [disabled]="!form.valid">Submit</button>
+      </div>
+    </ng-container>
+  </form>
+</div>
+<div *ngIf="!isLoaded">Loading questions...</div>
