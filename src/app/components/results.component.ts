@@ -87,7 +87,7 @@ export class ResultsComponent {
       msg.style.marginBottom = '16px';
 
       const yesBtn = document.createElement('button');
-      yesBtn.textContent = 'Obliterate';
+      yesBtn.textContent = 'Yes, delete';
       yesBtn.style.marginRight = '8px';
       yesBtn.onclick = () => {
         document.body.removeChild(dialog);
@@ -95,7 +95,7 @@ export class ResultsComponent {
       };
 
       const noBtn = document.createElement('button');
-      noBtn.textContent = 'Noooo';
+      noBtn.textContent = 'No';
       noBtn.onclick = () => {
         document.body.removeChild(dialog);
         resolve(false);

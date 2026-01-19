@@ -4,15 +4,15 @@ import { CommonModule, formatDate } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { SurveyModel } from 'survey-angular';
 import * as Survey from 'survey-angular';
-import { QuestionsAngularComponent } from './questions-angular.component';
 import { QuestionModeService } from '../services/question-mode.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-questions',
   standalone: true,
-  imports: [CommonModule, QuestionsAngularComponent],
+  imports: [CommonModule],
   templateUrl: './questions.component.html',
+  styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent implements OnInit {
   private surveyRendered = false;
