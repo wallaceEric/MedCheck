@@ -15,7 +15,7 @@
   width: 3.5em;
   height: 4px;
   border-radius: 2px;
-  background: linear-gradient(90deg, #e6b800 0%, #035465 100%);
+  background: linear-gradient(90deg, #fce8a6 0%, #a8d4dd 50%, #7bb8c8 100%);
 }
 /* Highlight active navbar button */
 .button.active,
@@ -24,7 +24,7 @@
   color: #086173;
   border-bottom: 1px solid #086173;
   font-weight: bold;
-  box-shadow: 0 4px 16px rgba(8,97,115,0.18), 0 0 0 2px #f39b04e9;
+  box-shadow: 0 4px 16px rgba(8,97,115,0.18), 0 0 0 1px #f39b04e9;
   transform: scale(1.01) translateY(-1px);
   z-index: 1;
   position: relative;
@@ -118,7 +118,7 @@
     padding: 0.35em 0.7em;
     border-radius: 3px;
     font-size: 0.55em;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     border: none;
     background: linear-gradient(90deg, #7cadb6 0%, #c3cecf 100%);
@@ -287,6 +287,25 @@ body {
 }
 .results-list th {
 	background: #f1f1f1;
+}
+
+.button-text-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    align-items: center;
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+.button-cell {
+    display: flex;
+    // justify-content: center;
+}
+
+.text-cell p {
+    margin: 0;
+    text-align: left;
 }
 
 @media (max-width: 600px) {

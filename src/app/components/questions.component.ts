@@ -4,7 +4,6 @@ import { CommonModule, formatDate } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { SurveyModel } from 'survey-angular';
 import * as Survey from 'survey-angular';
-import { QuestionModeService } from '../services/question-mode.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -22,13 +21,9 @@ export class QuestionsComponent implements OnInit {
   surveyContainerId = 'surveyContainer';
   storageName = 'medcheck-survey-state';
 
-  get mode(): 'surveyjs' | 'angular' {
-    return this.questionModeService.mode();
-  }
 
   constructor(
     private http: HttpClient,
-    public questionModeService: QuestionModeService,
     private cdr: ChangeDetectorRef,
     private router: Router
   ) {}
@@ -37,30 +32,27 @@ export class QuestionsComponent implements OnInit {
     this.loadQuestions();
   }
 
-  loadQuestions(): void {
-    if (this.mode === 'surveyjs') {
-      
-      Survey.StylesManager.applyTheme('defaultV2'); 
-      
-      this.http.get('assets/questions/questions-joint-health.json').subscribe(json => {
-        this.surveyJson = json;
-        this.survey = new Survey.Model(this.surveyJson);
+  loadQuestions(): void {      
+    Survey.StylesManager.applyTheme('defaultV2'); 
+    
+    this.http.get('assets/questions/questions-joint-health.json').subscribe(json => {
+      this.surveyJson = json;
+      this.survey = new Survey.Model(this.surveyJson);
 
-        // Restore previous state if available
-        this.loadState(this.survey);
+      // Restore previous state if available
+      this.loadState(this.survey);
 
-        // Save state on page change
-        this.survey.onCurrentPageChanged.add(this.saveState.bind(this, this.survey));
+      // Save state on page change
+      this.survey.onCurrentPageChanged.add(this.saveState.bind(this, this.survey));
 
-        // Custom completion message and link
-        this.survey.completedHtml = '<h3>Thank you for your feedback</h3><a href="results"> Results </a>';
+      // Custom completion message and link
+      this.survey.completedHtml = '<h3>Thank you for your feedback</h3><a href="results"> Results </a>';
 
-        // Handle completion
-        this.survey.onComplete.add(this.questionsComplete.bind(this, this.survey));
+      // Handle completion
+      this.survey.onComplete.add(this.questionsComplete.bind(this, this.survey));
 
-        Survey.SurveyNG.render(this.surveyContainerId, { model: this.survey });
-      });
-    }
+      Survey.SurveyNG.render(this.surveyContainerId, { model: this.survey });
+    });
   }
 
   questionsComplete(survey: SurveyModel) {

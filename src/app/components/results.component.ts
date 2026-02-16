@@ -95,7 +95,7 @@ export class ResultsComponent {
       };
 
       const noBtn = document.createElement('button');
-      noBtn.textContent = 'No';
+      noBtn.textContent = 'Cancel';
       noBtn.onclick = () => {
         document.body.removeChild(dialog);
         resolve(false);

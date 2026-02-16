@@ -169,49 +169,19 @@
                     "type": "matrixdynamic",
                     "name": "joints-shingles",
                     "title": "Please indicate each joint that was within a shingles rash area, how many times, severity and whether anti-inflammatory medications were used (Tylenol / acetaminophen does not count).",
-                    "visibleIf": "{shingles} = true",
+                    "visibleIf": "{shingles} = true",                    
                     "columns": [
                         {
                             "name": "joint",
                             "title": "Joint",
                             "cellType": "dropdown",
                             "isRequired": true,
-                            "choices": [
-                                "Neck",
-                                "Upper Back",
-                                "Lower Back",
-                                "Below Lower Back (Sacroiliac)",
-                                "Shoulder",
-                                "Elbow",
-                                "Wrist",
-                                "Thumb",
-                                "Fingers",
-                                "Hip",
-                                "Knee",
-                                "Ankle / Foot",
-                                "Big Toe"
-                            ]
-                        },
-                        {
-                            "name": "side",
-                            "title": "Side",
-                            "cellType": "dropdown",
-                            "isRequired": true,
-                            "choices": [
-                                {
-                                    "value": "r",
-                                    "text": "Left"
-                                },
-                                {
-                                    "value": "l",
-                                    "text": "Right"
-                                },
-                                {
-                                    "value": "na",
-                                    "text": "N/A"
-                                }
-                            ]
-                        },
+                            "choicesByUrl": { 
+                                "url": "/assets/questions/choices-joint.json",
+                                "valueName": "value", 
+                                "titleName": "text"
+                            }
+                        },                
                         {
                             "name": "count",
                             "title": "How many times?",
@@ -278,41 +248,11 @@
                             "title": "Joint",
                             "cellType": "dropdown",
                             "isRequired": true,
-                            "choices": [
-                                "Neck",
-                                "Upper Back",
-                                "Lower Back",
-                                "Below Lower Back (Sacroiliac)",
-                                "Shoulder",
-                                "Elbow",
-                                "Wrist",
-                                "Thumb",
-                                "Fingers",
-                                "Hip",
-                                "Knee",
-                                "Ankle / Foot",
-                                "Big Toe"
-                            ]
-                        },
-                        {
-                            "name": "side",
-                            "title": "Side",
-                            "cellType": "dropdown",
-                            "isRequired": true,
-                           "choices": [
-                                {
-                                    "value": "r",
-                                    "text": "Left"
-                                },
-                                {
-                                    "value": "l",
-                                    "text": "Right"
-                                },
-                                {
-                                    "value": "na",
-                                    "text": "N/A"
-                                }
-                            ]
+                            "choicesByUrl": { 
+                                "url": "/assets/questions/choices-joint.json",
+                                "valueName": "value", 
+                                "titleName": "text"
+                            }
                         },
                         {
                             "name": "count",
@@ -375,40 +315,11 @@
                             "name": "joint",
                             "title": "Joint",
                             "cellType": "dropdown",
-                            "choices": [
-                                "Neck",
-                                "Upper Back",
-                                "Lower Back",
-                                "Below Lower Back (Sacroiliac)",
-                                "Shoulder",
-                                "Elbow",
-                                "Wrist",
-                                "Thumb",
-                                "Fingers",
-                                "Hip",
-                                "Knee",
-                                "Ankle / Foot",
-                                "Big Toe"
-                            ]
-                        },
-                        {
-                            "name": "side",
-                            "title": "Side",
-                            "cellType": "dropdown",
-                           "choices": [
-                                {
-                                    "value": "r",
-                                    "text": "Left"
-                                },
-                                {
-                                    "value": "l",
-                                    "text": "Right"
-                                },
-                                {
-                                    "value": "na",
-                                    "text": "N/A"
-                                }
-                            ]
+                            "choicesByUrl": { 
+                                "url": "/assets/questions/choices-joint.json",
+                                "valueName": "value", 
+                                "titleName": "text"
+                            }
                         },
                         {
                             "name": "pain",
@@ -569,41 +480,12 @@
                             "name": "joint",
                             "title": "Joint",
                             "cellType": "dropdown",
-                            "choices": [
-                                "Neck",
-                                "Upper Back",
-                                "Lower Back",
-                                "Below Lower Back (Sacroiliac)",
-                                "Shoulder",
-                                "Elbow",
-                                "Wrist",
-                                "Thumb",
-                                "Fingers",
-                                "Hip",
-                                "Knee",
-                                "Ankle / Foot",
-                                "Big Toe"
-                            ]
-                        },
-                        {
-                            "name": "side",
-                            "title": "Side",
-                            "cellType": "dropdown",
-                           "choices": [
-                                {
-                                    "value": "r",
-                                    "text": "Left"
-                                },
-                                {
-                                    "value": "l",
-                                    "text": "Right"
-                                },
-                                {
-                                    "value": "na",
-                                    "text": "N/A"
-                                }
-                            ]
-                        },
+                            "choicesByUrl": { 
+                                "url": "/assets/questions/choices-joint.json",
+                                "valueName": "value", 
+                                "titleName": "text"
+                            }
+                        },                        
                         {
                             "name": "severity",
                             "title": "How severe?",
@@ -656,41 +538,12 @@
                             "name": "joint",
                             "title": "Joint",
                             "cellType": "dropdown",
-                            "choices": [
-                                "Neck",
-                                "Upper Back",
-                                "Lower Back",
-                                "Below Lower Back (Sacroiliac)",
-                                "Shoulder",
-                                "Elbow",
-                                "Wrist",
-                                "Thumb",
-                                "Fingers",
-                                "Hip",
-                                "Knee",
-                                "Ankle / Foot",
-                                "Big Toe"
-                            ]
-                        },
-                        {
-                            "name": "side",
-                            "title": "Side",
-                            "cellType": "dropdown",
-                           "choices": [
-                                {
-                                    "value": "r",
-                                    "text": "Left"
-                                },
-                                {
-                                    "value": "l",
-                                    "text": "Right"
-                                },
-                                {
-                                    "value": "na",
-                                    "text": "N/A"
-                                }
-                            ]
-                        },
+                            "choicesByUrl": { 
+                                "url": "/assets/questions/choices-joint.json",
+                                "valueName": "value", 
+                                "titleName": "text"
+                            }
+                        },                        
                         {
                             "name": "replaced",
                             "title": "Replaced?",
@@ -719,41 +572,11 @@
                             "name": "joint",
                             "title": "Joint",
                             "cellType": "dropdown",
-                            "choices": [
-                                "Neck",
-                                "Upper Back",
-                                "Lower Back",
-                                "Below Lower Back (Sacroiliac)",
-                                "Shoulder",
-                                "Elbow",
-                                "Wrist",
-                                "Thumb",
-                                "Fingers",
-                                "Hip",
-                                "Knee",
-                                "Ankle / Foot",
-                                "Big Toe"
-                            ]
-                        },
-                        {
-                            "name": "side",
-                            "title": "Side",
-                            "cellType": "dropdown",
-                            "isRequired": false,
-                           "choices": [
-                                {
-                                    "value": "r",
-                                    "text": "Left"
-                                },
-                                {
-                                    "value": "l",
-                                    "text": "Right"
-                                },
-                                {
-                                    "value": "na",
-                                    "text": "N/A"
-                                }
-                            ]
+                            "choicesByUrl": { 
+                                "url": "/assets/questions/choices-joint.json",
+                                "valueName": "value", 
+                                "titleName": "text"
+                            }
                         },
                         {
                             "name": "count-moc",

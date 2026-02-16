@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { Router } from '@angular/router';
-import { QuestionModeService } from '../services/question-mode.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,15 +11,7 @@ import { QuestionModeService } from '../services/question-mode.service';
   standalone: true,
 })
 export class NavbarComponent {
-  constructor(private router: Router, public questionModeService: QuestionModeService) {}
-
-  setMode(mode: 'surveyjs' | 'angular') {
-    this.questionModeService.setMode(mode);
-  }
-
-  public questionMode(): string {
-    return this.questionModeService.mode();
-  }
+  constructor(private router: Router) {}
 
   navigate(path: string) {
     this.router.navigate([path]);

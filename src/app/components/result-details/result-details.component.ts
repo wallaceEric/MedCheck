@@ -19,45 +19,45 @@ export class ResultDetailsComponent implements OnInit{
   public key: string = '';
   public nameDesc: string = '';
   public jointAreas = [
-    { label: 'Neck', key: Area.Neck },
-    { label: 'Upper Back', key: Area.BackUpper },
-    { label: 'Lower Back', key: Area.BackLower },
-    { label: 'Below Lower Back (SI)', key: Area.SI },
+    { label: 'Neck', key: Area.neck },
+    { label: 'Upper Back', key: Area.upperBack },
+    { label: 'Lower Back', key: Area.lowerBack },
+    { label: 'Below Lower Back (SI)', key: Area.sacroiliac },
     { label: 'Shoulders', sides: [
-      { label: 'Left', key: Area.Shoulder_Left },
-      { label: 'Right', key: Area.Shoulder_Right }
+      { label: 'Left', key: Area.shoulderLeft },
+      { label: 'Right', key: Area.shoulderRight }
     ]},
     { label: 'Elbows', sides: [
-      { label: 'Left', key: Area.Elbow_Left },
-      { label: 'Right', key: Area.Elbow_Right }
+      { label: 'Left', key: Area.elbowLeft },
+      { label: 'Right', key: Area.elbowRight }
     ]},
     { label: 'Wrists', sides: [
-      { label: 'Left', key: Area.Wrist_Left },
-      { label: 'Right', key: Area.Wrist_Right }
+      { label: 'Left', key: Area.wristLeft },
+      { label: 'Right', key: Area.wristRight }
     ]},
     { label: 'Thumbs', sides: [
-      { label: 'Left', key: Area.Thumb_Left },
-      { label: 'Right', key: Area.Thumb_Right }
+      { label: 'Left', key: Area.thumbLeft },
+      { label: 'Right', key: Area.thumbRight }
     ]},
     { label: 'Fingers', sides: [
-      { label: 'Left', key: Area.Fingers_Left },
-      { label: 'Right', key: Area.Fingers_Right }
+      { label: 'Left', key: Area.fingersLeft },
+      { label: 'Right', key: Area.fingersRight }
     ]},
     { label: 'Hips', sides: [
-      { label: 'Left', key: Area.Hip_Left },
-      { label: 'Right', key: Area.Hip_Right }
+      { label: 'Left', key: Area.hipLeft },
+      { label: 'Right', key: Area.hipRight }
     ]},
     { label: 'Knees', sides: [
-      { label: 'Left', key: Area.Knee_Left },
-      { label: 'Right', key: Area.Knee_Right }
+      { label: 'Left', key: Area.kneeLeft },
+      { label: 'Right', key: Area.kneeRight }
     ]},
     { label: 'Ankles / Feet', sides: [
-      { label: 'Left', key: Area.AnkleFoot_Left },
-      { label: 'Right', key: Area.AnkleFoot_Right }
+      { label: 'Left', key: Area.ankleFootLeft },
+      { label: 'Right', key: Area.ankleFootRight }
     ]},
     { label: 'Big Toes', sides: [
-      { label: 'Left', key: Area.BigToe_Left },
-      { label: 'Right', key: Area.BigToe_Right }
+      { label: 'Left', key: Area.bigToeLeft },
+      { label: 'Right', key: Area.bigToeRight }
     ]}
   ];
   

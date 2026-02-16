@@ -1,26 +1,26 @@
 export enum Area {
-    Neck,
-    BackUpper,
-    BackLower,
-    SI,
-    Shoulder_Left,
-    Shoulder_Right,
-    Elbow_Left,
-    Elbow_Right,
-    Wrist_Left,
-    Wrist_Right,
-    Thumb_Left,
-    Thumb_Right,
-    Fingers_Left,
-    Fingers_Right,
-    Hip_Left,
-    Hip_Right,
-    Knee_Left,
-    Knee_Right,
-    AnkleFoot_Left,
-    AnkleFoot_Right,
-    BigToe_Left,
-    BigToe_Right
+    neck,
+    upperBack,
+    lowerBack,
+    sacroiliac,
+    shoulderLeft,
+    shoulderRight,
+    elbowLeft,
+    elbowRight,
+    wristLeft,
+    wristRight,
+    thumbLeft,
+    thumbRight,
+    fingersLeft,
+    fingersRight,
+    hipLeft,
+    hipRight,
+    kneeLeft,
+    kneeRight,
+    ankleFootLeft,
+    ankleFootRight,
+    bigToeLeft,
+    bigToeRight
 }
 
 
@@ -167,37 +167,12 @@ export class Results {
     }
 
     AdjustArea(e: any, amt: number, isMax: boolean = false): void {
-        const joint = e["joint"], side = e["side"];
+        const joint = e["joint"];
 
         if (!joint)
             return;
 
-        let areaName: String;
-        switch (joint) {
-            case "Neck":
-                areaName = joint;
-                break;
-            case "Upper Back":
-                areaName = "BackUpper";
-                break;
-            case "Lower Back":
-                areaName = "BackLower";
-                break;
-            case "Below Lower Back (Sacroiliac)":
-                areaName = "SI";
-                break;
-            case "Ankle / Foot":
-                areaName = "AnkleFoot" + this.GetSide(side);
-                break;
-            case "Big Toe":
-                areaName = "BigToe" + this.GetSide(side);
-                break;
-            default:
-                areaName = joint + this.GetSide(side);
-                break;
-        }
-
-        const area = Area[areaName as keyof typeof Area];
+        const area = Area[joint as keyof typeof Area];
         let areaState = this.AreaStates.find(x => x.Area == area);
         if (!areaState) {
             areaState = {Area: area, State: 0};
