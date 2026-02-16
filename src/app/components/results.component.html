@@ -1,5 +1,9 @@
-  <div class="table-container">
+  <div class="center-content table-container">
     <h5>Results</h5>
+    @if (results.length === 0) {
+      <div class="table">No results found.</div>
+    }
+    @else {
     <table class="table">
       <thead>
         <tr>
@@ -31,7 +35,5 @@
         }
       </tbody>
     </table>
-    @if (results.length === 0) {
-      <div>No results found.</div>
     }
 </div>
