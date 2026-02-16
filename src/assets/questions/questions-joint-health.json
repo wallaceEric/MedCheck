@@ -206,11 +206,12 @@
                                     "text": "Moderate"
                                 },
                                 {
-                                    "value": -5,
+                                    "value": -7,
                                     "text": "Severe"
                                 }
                             ]
-                        }, {
+                        }, 
+                        {
                             "name": "ai",
                             "title": "Anti-inflammatory medications used?",
                             "cellType": "boolean",
